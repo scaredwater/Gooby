@@ -43,7 +43,7 @@ then
 			BYTESH=$(du -h "${UPLOADS}${FILE}" | cut -f1)
 			echo $(date '+%F %H:%M:%S'),START,1,${BYTES} "# ${FILE}" >> ${APILOG}
 			echo Queuing ${FILE} of size ${BYTESH}
-			rclone rc operations/movefile _async=true srcFs=Local: srcRemote="${UPLOADS}${FILE}" dstFs=${RCLONESERVICE}:${RCLONEFOLDER} dstRemote="${FILE}" --user test --pass P@ssword > /dev/null
+			rclone rc operations/movefile _async=true srcFs=Local: srcRemote="${UPLOADS}${FILE}" dstFs=${RCLONESERVICE}:${RCLONEFOLDER} dstRemote="${FILE}" --user ${USER} --pass ${USER} > /dev/null
 		else
 			echo Skipping ${FILE}:  Already in queue
 		fi
