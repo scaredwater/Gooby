@@ -35,7 +35,7 @@ if [[ -s ${TEMPFILE} ]]
 then
 	while IFS= read -r FILE
 	do
-		rclone rc core/stats --user test --pass P@ssword | jq '.transferring' | grep "${UPLOADS}${FILE}" > /dev/null
+		rclone rc core/stats --user $USER --pass $USER | jq '.transferring' | grep "${UPLOADS}${FILE}" > /dev/null
 		RUNCHECK=${?}
 		if [[ ${RUNCHECK} -gt 0 ]]
 		then
