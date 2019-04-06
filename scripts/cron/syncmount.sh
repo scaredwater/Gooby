@@ -35,7 +35,7 @@ if [[ -s ${TEMPFILE} ]]
 then
 	while IFS= read -r FILE
 	do
-		rclone rc core/stats --user gooby --pass G0o&y | jq '.transferring' | grep "${UPLOADS}${FILE}" > /dev/null
+		rclone rc core/stats --user ${USERNAME} --pass ${USERNAME} | jq '.transferring' | grep "${UPLOADS}${FILE}" > /dev/null
 		RUNCHECK=${?}
 		if [[ ${RUNCHECK} -gt 0 ]]
 		then
@@ -43,7 +43,7 @@ then
 			BYTESH=$(du -h "${UPLOADS}${FILE}" | cut -f1)
 			echo $(date '+%F %H:%M:%S'),START,1,${BYTES} "# ${FILE}" >> ${APILOG}
 			echo Queuing ${FILE} of size ${BYTESH}
-			rclone rc operations/movefile _async=true srcFs=Local: srcRemote="${UPLOADS}${FILE}" dstFs=${RCLONESERVICE}:${RCLONEFOLDER} dstRemote="${FILE}" --user gooby --pass G0o&y > /dev/null
+			rclone rc operations/movefile _async=true srcFs=Local: srcRemote="${UPLOADS}${FILE}" dstFs=${RCLONESERVICE}:${RCLONEFOLDER} dstRemote="${FILE}" --user ${USERNAME} --pass ${USERNAME} > /dev/null
 		else
 			echo Skipping ${FILE}:  Already in queue
 		fi
