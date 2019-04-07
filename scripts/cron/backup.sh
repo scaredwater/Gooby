@@ -23,4 +23,4 @@ APILOG=$LOGS/api.log
 
 BYTES=$(find /tmp -name '${BACKUP}' -exec du -bc {} + | grep total$ | cut -f1 | awk '{ total += $1 }; END { print total }')
 echo $(date '+%F %H:%M:%S'),START,1,${BYTES} >> ${APILOG}
-/usr/bin/rclone rc operations/movefile _async=true srcFs=Local: srcRemote=/tmp/${BACKUP} dstFs=$RCLONESERVICE: dstRemote=/Backup/$(hostname)/${BACKUP} --user ${USERNAME} --pass ${USERNAME} > /dev/null
+/usr/bin/rclone rc operations/movefile _async=true srcFs=Local: srcRemote=/tmp/${BACKUP} dstFs=$RCLONESERVICE: dstRemote=/Backup/$(hostname)/${BACKUP} --user gooby --pass Go0by > /dev/null
