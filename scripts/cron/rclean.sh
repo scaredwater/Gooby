@@ -79,7 +79,9 @@ sudo chown -R $USER:$USER /mnt
 
 # Gooby Upgradepath
 
-source /opt/Gooby/cron/upgradepath.sh
+if [[ $VERSION != "2.2.0" ]] then
+	source /opt/Gooby/cron/upgradepath.sh
+fi
 
 # Start Rclone and MergerFS
 
