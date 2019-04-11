@@ -77,6 +77,10 @@ echo -n > ${LOGS}/rclone.log
 
 sudo chown -R $USER:$USER /mnt
 
+# Gooby Upgradepath
+
+source /opt/Gooby/cron/upgradepath.sh
+
 # Start Rclone and MergerFS
 
 [[ ! -f "$TCONFIGS/plexclaim" ]] && echo "-" > $TCONFIGS/plexclaim
