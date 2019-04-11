@@ -17,9 +17,12 @@ done
 
 # Upgrade Rclone service 
 
-sudo mv /etc/systemd/system/rclone* /tmp
-sudo rsync -a /opt/Gooby/scripts/services/rclonefs* /etc/systemd/system/
-sudo sed -i "s/GOOBYUSER/${USER}/g" /etc/systemd/system/rclonefs.service
+cat /etc/systemd/system/rclone.service | grep "gooby" > /dev/null
+if ! [[ ${?} -eq 0 ]]; then
+	sudo mv /etc/systemd/system/rclone* /tmp
+	sudo rsync -a /opt/Gooby/scripts/services/rclonefs* /etc/systemd/system/
+	sudo sed -i "s/GOOBYUSER/${USER}/g" /etc/systemd/system/rclonefs.service
+fi
 
 cat $HOME/.config/rclone/rclone.conf | grep "[Local]" > /dev/null
 if ! [[ ${?} -eq 0 ]]; then
