@@ -81,7 +81,7 @@ echo
 echo "${LYELLOW}Calling on Upgrade Service${STD}"
 echo
 
-source /opt/Gooby/cron/upgradepath.sh
+source /opt/Gooby/scripts/cron/upgradeservice.sh
 
 # Start Rclone and MergerFS
 
