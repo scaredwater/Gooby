@@ -6,6 +6,8 @@
 
 # Check if necessary apps are installed
 
+sudo apt-get update
+
 APPLIST="acl apt-transport-https ca-certificates curl fail2ban fuse git gpg-agent grsync jq mergerfs nano rsyncufw socat unzip wget"
 
 for i in $APPLIST; do
