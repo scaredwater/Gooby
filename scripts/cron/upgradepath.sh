@@ -30,3 +30,5 @@ if ! [[ ${?} -eq 0 ]]; then
 	echo type = local >> $HOME/.config/rclone/rclone.conf
 	echo nounc = >> $HOME/.config/rclone/rclone.conf
 fi
+
+sudo systemctl daemon-reload
