@@ -77,11 +77,11 @@ echo -n > ${LOGS}/rclone.log
 
 sudo chown -R $USER:$USER /mnt
 
-# Gooby Upgradepath
+echo
+echo "${LYELLOW}Calling on Upgrade Service${STD}"
+echo
 
-if [[ $VERSION != "2.2.0" ]] then
-	source /opt/Gooby/cron/upgradepath.sh
-fi
+source /opt/Gooby/cron/upgradepath.sh
 
 # Start Rclone and MergerFS
 
